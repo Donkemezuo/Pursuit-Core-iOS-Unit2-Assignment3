@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6tf-FT-2yr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,188 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpJ-Zd-wxV">
+                                <rect key="frame" x="16" y="228" width="353" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="p0h-Bi-bGm"/>
+                                </constraints>
+                                <state key="normal" title="Single Player "/>
+                                <connections>
+                                    <segue destination="X8l-qo-UH0" kind="show" id="58F-H1-rjk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0E-Gp-DAU">
+                                <rect key="frame" x="11" y="452" width="353" height="30"/>
+                                <state key="normal" title="Two Player"/>
+                                <connections>
+                                    <segue destination="8g9-ne-amk" kind="show" id="rAP-og-YBW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="i0E-Gp-DAU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="11" id="8Zc-Uq-T0n"/>
+                            <constraint firstItem="i0E-Gp-DAU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FrM-K3-ldm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FpJ-Zd-wxV" secondAttribute="trailing" constant="6" id="Ibh-mj-4u7"/>
+                            <constraint firstItem="FpJ-Zd-wxV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Kan-VD-VMR"/>
+                            <constraint firstItem="FpJ-Zd-wxV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="164" id="Yzn-EV-rmE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i0E-Gp-DAU" secondAttribute="bottom" constant="185" id="xNY-7s-euR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dZt-qz-4xQ"/>
+                    <connections>
+                        <outlet property="singlePlayerOption" destination="FpJ-Zd-wxV" id="aql-5h-yU5"/>
+                        <outlet property="twoPlayerOption" destination="i0E-Gp-DAU" id="K1F-1G-II2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1114" y="213"/>
+        </scene>
+        <!--Two Player View Controller-->
+        <scene sceneID="6TR-6i-ekl">
+            <objects>
+                <viewController id="8g9-ne-amk" customClass="TwoPlayerViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nIq-Bz-SGO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sSD-kM-8iS">
+                                <rect key="frame" x="0.0" y="75" width="375" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.075391222650000006" blue="0.36079484760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Player One please enter a word">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="TimesNewRomanPSMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHe-CQ-7ry">
+                                <rect key="frame" x="16" y="125" width="343" height="11.5"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="10" name="TimesNewRomanPSMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ry7-HT-qqP">
+                                <rect key="frame" x="11" y="176.5" width="353" height="74"/>
+                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Player One Guess The letter">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.038159635970000001" blue="0.084221236909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-EM-I4d">
+                                <rect key="frame" x="20" y="280.5" width="335" height="240"/>
+                                <color key="backgroundColor" red="1" green="0.075391222650000006" blue="0.36079484760000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgh-2f-PJD">
+                                <rect key="frame" x="11" y="550.5" width="353" height="50"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="New Game">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="TimesNewRomanPSMT"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sgh-2f-PJD" firstAttribute="leading" secondItem="Myj-5s-3q5" secondAttribute="leading" constant="11" id="1MU-Ie-xFB"/>
+                            <constraint firstItem="sSD-kM-8iS" firstAttribute="trailing" secondItem="Myj-5s-3q5" secondAttribute="trailing" id="6aX-Bb-3ZI"/>
+                            <constraint firstItem="iHe-CQ-7ry" firstAttribute="top" secondItem="sSD-kM-8iS" secondAttribute="bottom" constant="20" id="9QA-1g-bI8"/>
+                            <constraint firstItem="sSD-kM-8iS" firstAttribute="top" secondItem="Myj-5s-3q5" secondAttribute="top" constant="11" id="AJI-ck-PRN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iHe-CQ-7ry" secondAttribute="trailing" id="Bzm-jL-RpZ"/>
+                            <constraint firstItem="Zbt-EM-I4d" firstAttribute="leading" secondItem="Myj-5s-3q5" secondAttribute="leading" constant="20" id="CHz-GH-rNg"/>
+                            <constraint firstItem="Myj-5s-3q5" firstAttribute="bottom" secondItem="sSD-kM-8iS" secondAttribute="bottom" constant="660" id="DHE-8A-fA3"/>
+                            <constraint firstItem="Zbt-EM-I4d" firstAttribute="top" secondItem="Ry7-HT-qqP" secondAttribute="bottom" constant="30" id="GHG-IL-bJ7"/>
+                            <constraint firstItem="Myj-5s-3q5" firstAttribute="bottom" secondItem="Sgh-2f-PJD" secondAttribute="bottom" constant="20" id="J27-NH-SYL"/>
+                            <constraint firstItem="sSD-kM-8iS" firstAttribute="centerX" secondItem="Myj-5s-3q5" secondAttribute="centerX" id="Jx4-ii-5Dw"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="iHe-CQ-7ry" secondAttribute="bottom" constant="484" id="L2Y-Zc-CE1"/>
+                            <constraint firstItem="Ry7-HT-qqP" firstAttribute="top" secondItem="iHe-CQ-7ry" secondAttribute="bottom" constant="40" id="Mt3-Pg-ybk"/>
+                            <constraint firstItem="iHe-CQ-7ry" firstAttribute="leading" secondItem="nIq-Bz-SGO" secondAttribute="leadingMargin" id="NKN-c1-rAr"/>
+                            <constraint firstItem="Sgh-2f-PJD" firstAttribute="top" secondItem="Zbt-EM-I4d" secondAttribute="bottom" constant="30" id="V7T-p8-ezY"/>
+                            <constraint firstItem="Ry7-HT-qqP" firstAttribute="leading" secondItem="Myj-5s-3q5" secondAttribute="leading" constant="11" id="cwq-yW-B4P"/>
+                            <constraint firstItem="Myj-5s-3q5" firstAttribute="trailing" secondItem="Zbt-EM-I4d" secondAttribute="trailing" constant="20" id="l6y-vr-BUw"/>
+                            <constraint firstItem="Myj-5s-3q5" firstAttribute="trailing" secondItem="Sgh-2f-PJD" secondAttribute="trailing" constant="11" id="nJH-P7-2jQ"/>
+                            <constraint firstItem="Myj-5s-3q5" firstAttribute="trailing" secondItem="Ry7-HT-qqP" secondAttribute="trailing" constant="11" id="nVi-Dg-7rC"/>
+                            <constraint firstItem="Myj-5s-3q5" firstAttribute="bottom" secondItem="Ry7-HT-qqP" secondAttribute="bottom" constant="370" id="uor-Gt-FTp"/>
+                            <constraint firstItem="Myj-5s-3q5" firstAttribute="bottom" secondItem="Zbt-EM-I4d" secondAttribute="bottom" constant="100" id="xqG-dK-7Qz"/>
+                            <constraint firstItem="sSD-kM-8iS" firstAttribute="top" secondItem="Myj-5s-3q5" secondAttribute="top" constant="11" id="ztg-Gb-kf3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Myj-5s-3q5"/>
+                    </view>
+                    <connections>
+                        <outlet property="PlayerTwoInputChar" destination="Ry7-HT-qqP" id="0By-0F-WL8"/>
+                        <outlet property="gameNotification" destination="iHe-CQ-7ry" id="NZh-pR-dhK"/>
+                        <outlet property="hangManImage" destination="Zbt-EM-I4d" id="Iot-uc-daj"/>
+                        <outlet property="playerOneInputWord" destination="sSD-kM-8iS" id="1ql-7r-6ez"/>
+                        <outlet property="restartGame" destination="Sgh-2f-PJD" id="u2b-RV-qsL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Byx-NG-zTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2280.8000000000002" y="-90.404797601199405"/>
+        </scene>
+        <!--Single Player View Controller-->
+        <scene sceneID="BJO-5i-3GT">
+            <objects>
+                <viewController id="X8l-qo-UH0" customClass="SinglePlayerViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="exW-KD-39C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tk6-2U-qbo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07N-qV-lge" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2281" y="681"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m4k-Pf-RDN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6tf-FT-2yr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FR5-i6-fpe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qXE-aL-sVE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Skg-wP-kwN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="764"/>
         </scene>
     </scenes>
 </document>

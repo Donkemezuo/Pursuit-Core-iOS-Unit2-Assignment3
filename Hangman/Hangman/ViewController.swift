@@ -9,12 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-  override func viewDidLoad() {
+   
+    @IBOutlet weak var singlePlayerOption: UIButton!
+    @IBOutlet weak var twoPlayerOption: UIButton!
+    //    var allmyWord = allTheWords
+    var invisibleWordToGuess = allTheWords.randomElement()
+    
+    override func viewDidLoad() {
     super.viewDidLoad()
+        
     // Do any additional setup after loading the view, typically from a nib.
   }
-
-
+   
 }
 
