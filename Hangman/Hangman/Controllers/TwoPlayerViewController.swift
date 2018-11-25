@@ -14,66 +14,65 @@ class TwoPlayerViewController: UIViewController {
     @IBOutlet weak var playerTwoInputChar: UITextField!
     @IBOutlet weak var restartGame: UIButton!
     @IBOutlet weak var hangManImage: UIImageView!
+    
     var numberOfTrials = 6
     var invisibleWord = ""
-    
+    var playerTwoChar:Character = "a"
     var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     var usedLetters:[String] = []
+ 
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         playerOneInputWord.delegate = self
         playerTwoInputChar.delegate = self
+             
+    }
+    
+    func gameBrain(string:String, char: Character) {
         
-        if let word = playerOneInputWord.text{
+        if let word = playerOneInputWord.text {
             invisibleWord = String(word)
-            guard alphabet.contains(invisibleWord) else {return}
-            print(word)
-            
-            let arrOfPlayerOne = Array(word)
-            var wordInCharacter = [String]()
-            for char in arrOfPlayerOne {
-                wordInCharacter.append(String(char))
+            if let myChar = playerTwoInputChar.text {
+                if myChar.count == 1 {
+                playerTwoChar = Character(myChar)
+            if invisibleWord.contains(playerTwoChar){
+                 gameNotification.text = "\(playerTwoChar)"
+               
             }
-            
-    let invisibleCharacterInput = String(repeatElement("-", count: word.count))
-             gameNotification.text = invisibleCharacterInput
-           
-        if let characterInput = playerTwoInputChar.text {
-            guard characterInput.count == 1 else {return}
-            guard alphabet.contains(characterInput) else {return}
-            }
-            
-            for i in 0...word.count {
-                if wordInCharacter[i] == characterInput{
-                    gameNotification.text = "You got it write"
+        }
+        }
+    }
+        
+    }
+    func myGameUpdate(str: String){
+        
+        var gameBoard:[Character] = Array(repeating: "-", count: invisibleWord.count)
+        var playerWordInArray = Array(invisibleWord)
+        gameNotification.text = String(gameBoard)
+
+        for i in 0...playerWordInArray.count - 1 {
+            if playerWordInArray[i] == playerTwoChar {
+                gameBoard[i] = playerTwoChar
+                if gameBoard == playerWordInArray {
                 }
-            }
-            }
-        }
-    
-   
-    
-    
-    func myIntake(input: Character) -> Bool {
-        if invisibleWord.contains(input) {
-        }
-        return true
-    }
-    
-    }
+}
+}
+}
+}
 extension TwoPlayerViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-       
-        if textField.text?.count == 1 {
-            print("User entered a letter")
-        }
-        
+        gameBrain(string: invisibleWord, char:playerTwoChar )
+        myGameUpdate(str: invisibleWord)
         return  true
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(textField.text ?? "")
         return true
     }
 }
+
+
+

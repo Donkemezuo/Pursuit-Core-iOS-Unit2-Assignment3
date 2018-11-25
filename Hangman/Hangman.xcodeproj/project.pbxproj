@@ -41,11 +41,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0486F76621A9F71100A3F847 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0486F75F21A6618400A3F847 /* HangManWords.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0486F76821A9F78E00A3F847 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57FCB5F721A36D3D00163B8E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0486F76921A9F7BA00A3F847 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0486F76321A8B65F00A3F847 /* TwoPlayerViewController.swift */,
+				0486F76121A8B64700A3F847 /* SinglePlayerViewController.swift */,
+				57FCB5F521A36D3D00163B8E /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		57FCB5E721A36D3D00163B8E = {
 			isa = PBXGroup;
 			children = (
-				0486F76121A8B64700A3F847 /* SinglePlayerViewController.swift */,
-				0486F76321A8B65F00A3F847 /* TwoPlayerViewController.swift */,
 				57FCB5F221A36D3D00163B8E /* Hangman */,
 				57FCB5F121A36D3D00163B8E /* Products */,
 			);
@@ -63,9 +87,9 @@
 			isa = PBXGroup;
 			children = (
 				57FCB5F321A36D3D00163B8E /* AppDelegate.swift */,
-				57FCB5F521A36D3D00163B8E /* ViewController.swift */,
-				0486F75F21A6618400A3F847 /* HangManWords.swift */,
-				57FCB5F721A36D3D00163B8E /* Main.storyboard */,
+				0486F76621A9F71100A3F847 /* Model */,
+				0486F76821A9F78E00A3F847 /* View */,
+				0486F76921A9F7BA00A3F847 /* Controllers */,
 				57FCB5FA21A36D3E00163B8E /* Assets.xcassets */,
 				57FCB5FC21A36D3E00163B8E /* LaunchScreen.storyboard */,
 				57FCB5FF21A36D3E00163B8E /* Info.plist */,
