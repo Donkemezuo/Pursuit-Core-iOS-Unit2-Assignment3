@@ -132,7 +132,7 @@
                     </view>
                     <connections>
                         <outlet property="PlayerTwoInputChar" destination="Ry7-HT-qqP" id="0By-0F-WL8"/>
-                        <outlet property="gameNotification" destination="iHe-CQ-7ry" id="NZh-pR-dhK"/>
+                        <outlet property="gameUpdate" destination="iHe-CQ-7ry" id="NZh-pR-dhK"/>
                         <outlet property="hangManImage" destination="Zbt-EM-I4d" id="Iot-uc-daj"/>
                         <outlet property="playerOneInputWord" destination="sSD-kM-8iS" id="1ql-7r-6ez"/>
                         <outlet property="restartGame" destination="Sgh-2f-PJD" id="u2b-RV-qsL"/>

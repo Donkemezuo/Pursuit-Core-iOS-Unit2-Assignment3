@@ -77,7 +77,7 @@ class SinglePlayerViewController: UIViewController {
                 """)
             setHangManImage(trials: numberOfTrials)
             if numberOfTrials == 0 {
-                updateGameLabel(with: "You are dead💀")
+                updateGameLabel(with: "You are dead💀! The right word is \(randomWord)")
             }
         }
         return randomWord.contains(input)
