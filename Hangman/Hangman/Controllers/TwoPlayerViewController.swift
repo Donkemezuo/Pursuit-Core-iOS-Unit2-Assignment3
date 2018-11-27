@@ -25,11 +25,8 @@ class TwoPlayerViewController: UIViewController {
         super.viewDidLoad()
         playerOneInputWord.delegate = self
         playerTwoInputChar.delegate = self
-             
     }
-    
     func gameBrain(string:String, char: Character) {
-        
         if let word = playerOneInputWord.text {
             invisibleWord = String(word)
             if let myChar = playerTwoInputChar.text {
@@ -37,7 +34,6 @@ class TwoPlayerViewController: UIViewController {
                 playerTwoChar = Character(myChar)
                     guard invisibleWord.contains(playerTwoChar) else {return}
                  gameNotification.text = "\(playerTwoChar)"
-
         }
         }
     }
