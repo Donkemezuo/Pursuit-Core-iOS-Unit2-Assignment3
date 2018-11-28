@@ -10,14 +10,13 @@ import UIKit
 
 class SinglePlayerViewController: UIViewController {
     @IBOutlet weak var gameUpdate: UILabel!
-    @IBOutlet weak var randomWordDisplay: UITextField!
     @IBOutlet weak var characterInput: UITextField!
     @IBOutlet weak var hangManImage: UIImageView!
     var numberOfTrials = 6
     var allAvailableWord = allTheWords
     var playerChar = "a"
     var arrayRandomWord = [String]()
-    var usedOfLetters: [String] = []
+    var usedLetters: [String] = []
     var hiddenStringArray = [String]()
     
     var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -29,15 +28,12 @@ class SinglePlayerViewController: UIViewController {
         startGame()
         
     }
-    
-    //start game function
-    //get and set random word
-    //update labels
-    //
+
     
     private  func startGame(){
         setRandomWord()
         hangManImage.image = UIImage(named: "hang1")
+        characterInput.text = ""
     }
     
     private func setRandomWord(){
@@ -54,11 +50,8 @@ class SinglePlayerViewController: UIViewController {
         gameUpdate.text = message
     }
     
-    // function that check the length and type of character input
-    // function that checks if char is contained in random word
-    
     private func isInputValid(input: String) -> Bool{
-        guard alphabet.contains(input) else {
+        guard alphabet.contains(input.lowercased()) else {
             updateGameLabel(with: "You can only input characters")
             return false}
         guard input.count == 1 else {
@@ -68,35 +61,43 @@ class SinglePlayerViewController: UIViewController {
     }
     
     private func isInputContained(input: String) -> Bool{
-        if !randomWord.contains(input){
-           usedOfLetters.append(input)
+        if usedLetters.contains(input.lowercased()){
+            return false
+        }
+        
+        if !randomWord.contains(input.lowercased()){
+           usedLetters.append(input)
             numberOfTrials -= 1
             updateGameLabel(with: """
                 Wrong input. You have \(numberOfTrials) trials left
                 Please try again
                 """)
+           
             setHangManImage(trials: numberOfTrials)
             if numberOfTrials == 0 {
-                updateGameLabel(with: "You are dead💀! The right word is \(randomWord)")
+               playerLost()
             }
         }
-        return randomWord.contains(input)
+       
+        
+        return randomWord.contains(input.lowercased())
     }
     
-    //Find the location of the user input character in our randomWord
-    // Insert the userInput character at that location
-    
+    func playerLost(){
+        characterInput.isEnabled = false
+        updateGameLabel(with: "You are dead💀! The right word is \(randomWord)")
+        
+    }
+  
     private func findAndReplaceUserInputCharacter(input: String) -> String {
         for (index, character) in randomWord.enumerated() {
             if input == String(character) {
                 hiddenStringArray[index] = String(character)
-                //updateGameLabel(with: hiddenStringArray)
+         
             }
         }
         return hiddenStringArray.reduce("", +)
     }
-    
-    // a function that prints out win
     
     private func winning(string:String) -> Bool {
         let winningWord = hiddenStringArray.reduce("",+)
@@ -127,12 +128,7 @@ class SinglePlayerViewController: UIViewController {
         }
     }
     
-//    func inputEnabled(trials: Int) -> Bool{
-//        while trials > 0 {
-//
-//        }
-//
-//    }
+
     
 }
 
